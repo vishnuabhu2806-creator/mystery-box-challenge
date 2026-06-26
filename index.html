@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>₹100 Mystery Box Challenge 🎁</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.container{
+    background:white;
+    max-width:600px;
+    width:100%;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+h1{
+    color:#764ba2;
+    margin-bottom:15px;
+}
+
+.boxes button{
+    padding:15px 25px;
+    margin:10px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:18px;
+    color:white;
+    background:#667eea;
+    transition:0.3s;
+}
+
+.boxes button:hover{
+    transform:scale(1.08);
+}
+
+#gameResult{
+    margin-top:20px;
+    display:none;
+}
+
+input{
+    padding:12px;
+    width:80%;
+    border:2px solid #ddd;
+    border-radius:10px;
+    margin-top:15px;
+}
+
+.checkBtn{
+    margin-top:15px;
+    padding:12px 20px;
+    border:none;
+    border-radius:10px;
+    background:#764ba2;
+    color:white;
+    cursor:pointer;
+}
+
+#finalResult{
+    margin-top:20px;
+    font-size:18px;
+    font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>🎁 ₹100 Mystery Box Challenge</h1>
+
+<p>
+Choose one mystery box.<br>
+Only ONE box contains ₹100 cashback 😎
+</p>
+
+<br>
+
+<div class="boxes">
+<button onclick="chooseBox()">📦 Box 1</button>
+<button onclick="chooseBox()">📦 Box 2</button>
+<button onclick="chooseBox()">📦 Box 3</button>
+</div>
+
+<div id="gameResult">
+
+<h2>😭 Oops!</h2>
+
+<p>
+You were extremely close to winning ₹100.<br><br>
+
+But don't worry...<br>
+You have ONE final chance.
+</p>
+
+<br>
+
+<h3>💙 Guess Vishnu's Favourite Colour 💖</h3>
+
+<input
+type="text"
+id="colourInput"
+placeholder="Enter colour here">
+
+<br>
+
+<button class="checkBtn" onclick="checkColour()">
+Submit Answer
+</button>
+
+<div id="finalResult"></div>
+
+</div>
+
+</div>
+
+<script>
+
+function chooseBox(){
+
+document.getElementById("gameResult").style.display="block";
+
+window.scrollTo({
+top:document.body.scrollHeight,
+behavior:"smooth"
+});
+
+}
+
+function checkColour(){
+
+let colour=document
+.getElementById("colourInput")
+.value
+.toLowerCase()
+.trim();
+
+let result=document
+.getElementById("finalResult");
+
+if(
+colour==="pink" ||
+colour==="blue"
+){
+
+result.innerHTML=
+`
+🎉 Congratulations! 🎉<br><br>
+
+✅ Correct Answer<br><br>
+
+💙💖 You guessed Vishnu's favourite colour.<br><br>
+
+🏆 Special Title Unlocked:<br>
+"Certified Vishnu Expert"<br><br>
+
+😎 You know him surprisingly well.<br><br>
+
+📸 Take a screenshot and send it to Vishnu to claim your imaginary ₹100 cashback 😂
+`;
+
+}
+else{
+
+result.innerHTML=
+`
+❌ Wrong Answer<br><br>
+
+The Cashback Department is disappointed 😭<br><br>
+
+💡 Hint:<br>
+Think of a colour Vishnu would actually choose 😜
+`;
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
